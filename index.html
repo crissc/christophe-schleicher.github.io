@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christophe Schleicher – Profil LinkedIn Transversal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+  :root {
+    --navy: #0d2b4e;
+    --teal: #0e7490;
+    --dark: #111827;
+    --muted: #6b7280;
+    --accent: #0e7490;
+    --accent-light: #ecfeff;
+    --border: #e5e7eb;
+    --bg: #f8fafc;
+    --white: #ffffff;
+    --gold: #c8972a;
+    --tag-bg: #eff6ff;
+    --tag-text: #1d4ed8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .page {
+    max-width: 880px;
+    margin: 36px auto;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 6px 40px rgba(13,43,78,0.10);
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #0d2b4e 0%, #0a3d5e 60%, #0e7490 100%);
+    padding: 46px 52px 38px;
+    color: #fff;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3.5px;
+    background: linear-gradient(90deg, var(--gold), #e6b84a, var(--gold));
+  }
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.3rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 5px;
+  }
+  .header .title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #bfdbfe;
+    margin-bottom: 14px;
+  }
+  .header .meta {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    font-size: 0.82rem; color: #93c5fd;
+  }
+
+  /* LANG SWITCHER */
+  .lang-switcher {
+    display: flex;
+    gap: 8px;
+    padding: 14px 52px;
+    background: var(--navy);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .lang-btn {
+    padding: 5px 16px;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    background: transparent;
+    color: #93c5fd;
+    font-family: 'Sora', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    padding: 0 52px;
+  }
+  .tab {
+    padding: 13px 18px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab.active, .tab:hover { color: var(--teal); border-bottom-color: var(--teal); }
+
+  /* CONTENT */
+  .content { padding: 40px 52px; }
+  .lang-content { display: none; }
+  .lang-content.active { display: block; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 22px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--teal);
+  }
+
+  /* ABOUT */
+  .positioning-label {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .tagline {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--teal);
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+  .about-body p { margin-bottom: 14px; color: var(--dark); }
+
+  /* TARGET ROLES */
+  .target-roles {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin: 20px 0;
+  }
+  .role-badge {
+    background: var(--navy);
+    color: #bfdbfe;
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 0.83rem;
+    font-weight: 500;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* KEYWORDS */
+  .kw-block {
+    background: var(--tag-bg);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 22px;
+  }
+  .kw-block h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--tag-text);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag {
+    background: var(--white);
+    color: var(--tag-text);
+    border: 1px solid #bfdbfe;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  .ats-note {
+    background: #fefce8;
+    border-left: 4px solid var(--gold);
+    padding: 13px 18px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #78716c;
+    font-style: italic;
+  }
+  .ats-note strong { color: #92400e; font-style: normal; }
+
+  /* EXPERIENCE */
+  .exp-item {
+    display: flex; gap: 18px;
+    margin-bottom: 30px; padding-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .exp-dot {
+    flex-shrink: 0; width: 13px; height: 13px; border-radius: 50%;
+    background: var(--teal); margin-top: 5px;
+    box-shadow: 0 0 0 4px var(--accent-light);
+  }
+  .exp-dot.muted { background: var(--border); box-shadow: 0 0 0 4px #f3f4f6; }
+  .exp-body { flex: 1; }
+  .exp-role { font-weight: 600; font-size: 0.98rem; color: var(--dark); margin-bottom: 2px; }
+  .exp-company { color: var(--teal); font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
+  .exp-dates { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px; font-style: italic; }
+  .exp-desc { margin-bottom: 8px; }
+  .exp-desc li { margin-left: 16px; margin-bottom: 5px; font-size: 0.9rem; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .exp-tag {
+    background: #eff6ff; color: #1d4ed8;
+    padding: 2px 10px; border-radius: 12px;
+    font-size: 0.72rem; font-weight: 500;
+  }
+
+  .group-label {
+    font-size: 0.73rem; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted); font-weight: 600;
+    margin-bottom: 16px; padding-bottom: 5px;
+    border-bottom: 2px solid var(--teal);
+    display: inline-block;
+  }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width:600px) { .skills-grid { grid-template-columns: 1fr; } }
+  .skill-card {
+    background: var(--bg); border-radius: 10px;
+    padding: 18px 20px; border: 1px solid var(--border);
+  }
+  .skill-card h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--teal); font-weight: 600; margin-bottom: 11px; }
+  .skill-list { list-style: none; }
+  .skill-list li { font-size: 0.88rem; padding: 5px 0; border-bottom: 1px dashed #d1d5db; color: var(--dark); }
+  .skill-list li:last-child { border-bottom: none; }
+  .skill-list li::before { content: '▸ '; color: var(--teal); font-size: 0.73rem; }
+
+  .lang-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+  .lang-badge {
+    background: var(--tag-bg); border: 1px solid #bfdbfe;
+    border-radius: 8px; padding: 10px 16px; min-width: 130px;
+  }
+  .lang-badge strong { display: block; font-size: 0.92rem; }
+  .lang-badge span { font-size: 0.78rem; color: var(--muted); }
+
+  /* EDU */
+  .edu-item { padding: 15px 0; border-bottom: 1px solid var(--border); }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-school { font-weight: 600; font-size: 0.95rem; }
+  .edu-degree { color: var(--muted); font-size: 0.88rem; font-style: italic; }
+  .edu-dates { font-size: 0.8rem; color: var(--muted); }
+  .cert-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .cert-item:last-child { border-bottom: none; }
+  .cert-badge {
+    width: 34px; height: 34px; border-radius: 7px;
+    background: var(--navy); color: #bfdbfe;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.62rem; font-weight: 700; flex-shrink: 0;
+  }
+  .cert-name { font-weight: 600; font-size: 0.9rem; }
+  .cert-issuer { font-size: 0.8rem; color: var(--muted); }
+
+  /* COPY */
+  .copy-block {
+    background: #f8fafc; border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px; margin-top: 14px; position: relative;
+  }
+  .copy-block pre {
+    white-space: pre-wrap; font-family: 'Sora', sans-serif;
+    font-size: 0.87rem; color: var(--dark); line-height: 1.75;
+  }
+  .copy-btn {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--teal); color: #fff; border: none;
+    border-radius: 6px; padding: 6px 14px; font-size: 0.76rem;
+    cursor: pointer; font-family: 'Sora', sans-serif; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: var(--navy); }
+
+  .footer {
+    text-align: center; padding: 18px;
+    font-size: 0.76rem; color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>Christophe Schleicher</h1>
+    <div class="title">Senior Content Operations & Process Engineering Specialist · Digital Transformation · IC L6+</div>
+    <div class="meta">
+      <span>📍 Lunéville, Grand Est, France</span>
+      <span>🌐 Hybride / Remote-friendly</span>
+      <span>✉️ christophe.schleicher@gmail.com</span>
+      <span>🗣️ FR · EN C1 · DE (pro)</span>
+    </div>
+  </div>
+
+  <!-- LANG SWITCHER -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="switchLang('fr', this)">🇫🇷 Français</button>
+    <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 English</button>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(event)">À propos</div>
+    <div class="tab" onclick="showTab(event)">Expériences</div>
+    <div class="tab" onclick="showTab(event)">Compétences</div>
+    <div class="tab" onclick="showTab(event)">Formation</div>
+    <div class="tab" onclick="showTab(event)">✨ Centres d'intérêt</div>
+  </div>
+
+  <div class="content">
+
+    <!-- ═══════════ FRANÇAIS ═══════════ -->
+    <div class="lang-content active" id="lang-fr">
+
+      <!-- ABOUT FR -->
+      <div class="section active" data-tab="À propos">
+        <h2 class="section-title">À propos</h2>
+        <div class="positioning-label">Profil transversal · Secteur-agnostique</div>
+        <div class="tagline">"Le domaine change. La capacité à structurer, optimiser et livrer reste la même."</div>
+        <div class="about-body">
+          <p>Spécialiste senior en <strong>opérations de contenu digital, ingénierie des processus et systèmes de connaissance</strong> — avec 20+ ans d'expérience progressive dans des environnements très différents : IT & télécoms (Défense), insertion sociale (EPIDE), industrie logicielle internationale (Cyncly). Cette diversité sectorielle est une force : elle forge une capacité d'adaptation et une vision système qui s'applique à tout contexte.</p>
+          <p>Actuellement <strong>Content Director Bathroom chez Cyncly (L6)</strong>, je pilote des opérations de production de contenu à l'échelle internationale — pipelines, référentiels qualité, transformation des outils et coordination transverse produit/delivery/clients. Le secteur (sanitaire, interior design) est un contexte ; le cœur de métier est la <strong>conception et l'optimisation de systèmes de production de contenu</strong>.</p>
+          <p>En recherche active d'un rôle <strong>Individual Contributor senior (L6+)</strong> en <em>Content Ops, Knowledge Management, Digital Transformation ou Gestion de Projet Technique</em> — dans tout secteur qui valorise la rigueur méthodologique, la pensée systémique et la capacité à livrer de la qualité à l'échelle.</p>
+        </div>
+
+        <div style="margin-top:20px">
+          <p style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:10px;">🎯 Postes cibles</p>
+          <div class="target-roles">
+            <div class="role-badge">Content / Knowledge Manager</div>
+            <div class="role-badge">Product Content Lead / Content Ops</div>
+            <div class="role-badge">Consultant Transformation Digitale</div>
+            <div class="role-badge">Chef de projet technique (IC)</div>
+          </div>
+        </div>
+
+        <div class="kw-block">
+          <h4>🔍 Mots-clés ATS — transversaux</h4>
+          <div class="tags">
+            <span class="tag">Content Operations</span><span class="tag">Knowledge Management</span>
+            <span class="tag">Process Engineering</span><span class="tag">Digital Transformation</span>
+            <span class="tag">Content Architecture</span><span class="tag">Structured Authoring</span>
+            <span class="tag">Quality Assurance</span><span class="tag">Continuous Improvement</span>
+            <span class="tag">Agile / Scrum</span><span class="tag">Requirements Analysis</span>
+            <span class="tag">Stakeholder Management</span><span class="tag">Technical Documentation</span>
+            <span class="tag">Workflow Automation</span><span class="tag">KPI & Reporting</span>
+            <span class="tag">Project Management</span><span class="tag">Cross-functional</span>
+            <span class="tag">Multinational Teams</span><span class="tag">AI Fundamentals</span>
+            <span class="tag">Individual Contributor L6</span><span class="tag">Information Architecture</span>
+          </div>
+        </div>
+        <div class="ats-note"><strong>Note ATS :</strong> Ce profil évite les termes trop spécifiques à l'interior design (SFx, Simpliplan, CiC…) au profit de vocabulaire transversal reconnu dans tous les secteurs. Ces termes sectoriels restent dans les expériences pour la crédibilité, mais ne définissent pas l'identité du profil.</div>
+      </div>
+
+      <!-- EXPERIENCE FR -->
+      <div class="section" data-tab="Expériences">
+        <h2 class="section-title">Expériences</h2>
+
+        <div class="group-label">Industrie logicielle — Content & Ops</div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-body">
+            <div class="exp-role">Content Director Bathroom</div>
+            <div class="exp-company">Cyncly (ex Compusoft) · CDI · L6</div>
+            <div class="exp-dates">Sept. 2022 – Présent · 3 ans 9 mois · Lunéville (Hybride)</div>
+            <ul class="exp-desc">
+              <li><strong>Opérations de contenu</strong> : pilotage de pipelines de production de catalogues produits dématérialisés sur marchés internationaux.</li>
+              <li><strong>Ingénierie des processus</strong> : définition des standards, portes qualité et KPIs ; réduction du rework par authoring structuré et QA data-driven.</li>
+              <li><strong>Transformation digitale</strong> : évolution des outils et workflows, migration vers des architectures de contenu scalables.</li>
+              <li><strong>Coordination transverse</strong> : alignement produit / delivery / clients / contenu via sprint reviews, roadmaps et gestion des parties prenantes.</li>
+              <li>Management d'équipe : performance, OKRs, engagement (Peakon), développement des compétences.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Content Ops</span><span class="exp-tag">Process Engineering</span><span class="exp-tag">Digital Transformation</span><span class="exp-tag">QA</span><span class="exp-tag">Agile</span><span class="exp-tag">Stakeholder Mgmt</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-body">
+            <div class="exp-role">Catalogue Coordinator – Bathroom Branch</div>
+            <div class="exp-company">Compusoft France (now Cyncly)</div>
+            <div class="exp-dates">Juin 2015 – Présent · 11 ans · Lunéville</div>
+            <ul class="exp-desc">
+              <li><strong>Architecture de la connaissance</strong> : définition de structures de contenu, taxonomies et workflows de production.</li>
+              <li>Coordination technique avec partenaires internationaux ; contrôle des spécifications.</li>
+              <li>Documentation interne, guides d'authoring structuré et ressources d'onboarding.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Knowledge Mgmt</span><span class="exp-tag">Content Architecture</span><span class="exp-tag">Tech Documentation</span><span class="exp-tag">Process Definition</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="group-label" style="margin-top:4px">Secteur social</div>
+
+        <div class="exp-item">
+          <div class="exp-dot muted"></div>
+          <div class="exp-body">
+            <div class="exp-role">Référent (Conseiller en insertion professionnelle)</div>
+            <div class="exp-company">EPIDE · Strasbourg</div>
+            <div class="exp-dates">Janv. 2010 – Mai 2015 · 5 ans 5 mois</div>
+            <ul class="exp-desc">
+              <li>Conception et animation de programmes pédagogiques individualisés pour jeunes adultes (18-25 ans).</li>
+              <li>Reporting, suivi de cohortes, communication institutionnelle.</li>
+            </ul>
+            <div class="exp-tags"><span class="exp-tag">Pédagogie</span><span class="exp-tag">Knowledge Transfer</span><span class="exp-tag">Reporting</span></div>
+          </div>
+        </div>
+
+        <div class="group-label" style="margin-top:4px">Défense — IT & Gestion de projets</div>
+
+        <div class="exp-item">
+          <div class="exp-dot muted"></div>
+          <div class="exp-body">
+            <div class="exp-role">Responsable de projets TIC</div>
+            <div class="exp-company">Défense (Ministère des Armées)</div>
+            <div class="exp-dates">Juil. 2005 – Oct. 2009 · 4 ans 4 mois</div>
+            <ul class="exp-desc">
+              <li><strong>Gestion de projets IT de grande envergure</strong> : déploiement d'infrastructures réseaux sur sites multiples, documentation technique, gestion des risques.</li>
+            </ul>
+            <div class="exp-tags"><span class="exp-tag">ICT Project Mgmt</span><span class="exp-tag">Tech Documentation</span><span class="exp-tag">Process Definition</span></div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot muted"></div>
+          <div class="exp-body">
+            <div class="exp-role">Chef de service informatique et télécoms</div>
+            <div class="exp-company">Défense</div>
+            <div class="exp-dates">Juin 2003 – Juil. 2005 · 2 ans 2 mois</div>
+            <ul class="exp-desc">
+              <li>Management d'une unité de 120 techniciens · supervision SI et télécoms · respect des SLA.</li>
+            </ul>
+            <div class="exp-tags"><span class="exp-tag">IT Ops</span><span class="exp-tag">Leadership</span></div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot muted"></div>
+          <div class="exp-body">
+            <div class="exp-role">Chef de section (×2)</div>
+            <div class="exp-company">Défense</div>
+            <div class="exp-dates">1996 – 1998 · 2 ans</div>
+            <ul class="exp-desc"><li>Encadrement opérationnel, pédagogie, administration.</li></ul>
+            <div class="exp-tags"><span class="exp-tag">Leadership</span><span class="exp-tag">Administration</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKILLS FR -->
+      <div class="section" data-tab="Compétences">
+        <h2 class="section-title">Compétences</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>📦 Contenu & Connaissance</h3>
+            <ul class="skill-list">
+              <li>Content Operations (Ops)</li>
+              <li>Architecture de la connaissance</li>
+              <li>Authoring structuré</li>
+              <li>Documentation technique</li>
+              <li>Architecture de l'information</li>
+              <li>Gestion des connaissances</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>⚙️ Processus & Transformation</h3>
+            <ul class="skill-list">
+              <li>Ingénierie des processus</li>
+              <li>Amélioration continue</li>
+              <li>Transformation digitale</li>
+              <li>Automatisation des workflows</li>
+              <li>Assurance qualité (QA)</li>
+              <li>Analyse des exigences</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>🎯 Gestion de projet & Ops</h3>
+            <ul class="skill-list">
+              <li>Agile / Scrum</li>
+              <li>Planification & pilotage</li>
+              <li>KPI & Reporting</li>
+              <li>Gestion des parties prenantes</li>
+              <li>Coordination transverse</li>
+              <li>MS Office / Excel (avancé)</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>🤖 Émergent (2024+)</h3>
+            <ul class="skill-list">
+              <li>Fondamentaux de l'IA</li>
+              <li>IA pour les managers</li>
+              <li>Leadership adaptatif</li>
+              <li>Leadership de projet flexible</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:22px">
+          <p style="font-weight:600;font-size:0.9rem;margin-bottom:10px;color:var(--navy);">🌍 Langues</p>
+          <div class="lang-row">
+            <div class="lang-badge"><strong>Français</strong><span>Langue maternelle</span></div>
+            <div class="lang-badge"><strong>Anglais</strong><span>C1 – EF SET 64/100 (2021)</span></div>
+            <div class="lang-badge"><strong>Allemand</strong><span>Compétence professionnelle</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCATION FR -->
+      <div class="section" data-tab="Formation">
+        <h2 class="section-title">Formation & Certifications</h2>
+        <h3 style="font-size:0.82rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:12px;font-weight:600;">Diplômes</h3>
+        <div class="edu-item"><div class="edu-school">UHA – Université de Haute-Alsace, Mulhouse</div><div class="edu-degree">1ère année Magistère – Science et Structure de la Matière</div><div class="edu-dates">1992 – 1993</div></div>
+        <div class="edu-item"><div class="edu-school">Lycée André Argouges – Grenoble</div><div class="edu-degree">Maths Sup & Spé TB (Chimie) – Prépas scientifiques</div><div class="edu-dates">1990 – 1992</div></div>
+        <h3 style="font-size:0.82rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:20px 0 12px;font-weight:600;">Certifications</h3>
+        <div class="cert-item"><div class="cert-badge">EF</div><div><div class="cert-name">EF SET English Certificate C1 (64/100)</div><div class="cert-issuer">EF Standard English Test · Janv. 2021</div></div></div>
+        <div class="cert-item"><div class="cert-badge">LI</div><div><div class="cert-name">Fondements de l'intelligence artificielle</div><div class="cert-issuer">LinkedIn Learning · Nov. 2024</div></div></div>
+        <div class="cert-item"><div class="cert-badge">LI</div><div><div class="cert-name">IA pour les leaders et les managers</div><div class="cert-issuer">LinkedIn Learning · Nov. 2024</div></div></div>
+        <div class="cert-item"><div class="cert-badge">LI</div><div><div class="cert-name">Leadership de projet flexible</div><div class="cert-issuer">LinkedIn Learning · Nov. 2024</div></div></div>
+      </div>
+
+      <!-- CENTRES D'INTÉRÊT FR -->
+      <div class="section" data-tab="✨ Centres d'intérêt">
+        <h2 class="section-title">Centres d'intérêt &amp; Passions</h2>
+
+        <div class="positioning-label">Ce que je suis en dehors du bureau</div>
+        <p style="margin:14px 0 28px;color:var(--muted);font-size:0.9rem;font-style:italic;">Chaque passion révèle une facette de la façon dont je pense et je résous les problèmes. Certaines nourrissent directement mon profil professionnel, d'autres révèlent qui je suis vraiment.</p>
+
+        <!-- BLOC 1 : LIEN DIRECT PRO -->
+        <div style="margin-bottom:32px">
+          <div class="group-label">🔗 En lien direct avec mon profil professionnel</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+
+            <div class="skill-card">
+              <h3>🤖 Intelligence Artificielle</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Utilisateur actif et curieux de <strong>Claude, ChatGPT, Copilot</strong> — pas seulement comme outils, mais pour comprendre leurs mécanismes, leurs limites et leur potentiel dans les workflows de production de contenu.</p>
+              <div class="exp-tags"><span class="exp-tag">Content Ops augmenté IA</span><span class="exp-tag">Workflow Automation</span><span class="exp-tag">Digital Transformation</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>⚙️ Automatisation VBA &amp; Dev</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Passion pour la <strong>programmation VBA</strong> appliquée à l'optimisation du travail quotidien. Développement ponctuel niveau initié — l'envie de comprendre les systèmes de l'intérieur, pas juste de les utiliser.</p>
+              <div class="exp-tags"><span class="exp-tag">Process Automation</span><span class="exp-tag">VBA / Microsoft 365</span><span class="exp-tag">Problem Solving</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>🖨️ Impression 3D</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Pratique de <strong>l'impression 3D</strong> en amateur — lien naturel avec l'univers du contenu 3D et des catalogues dématérialisés. Comprendre la matière pour mieux produire le virtuel.</p>
+              <div class="exp-tags"><span class="exp-tag">3D Content</span><span class="exp-tag">Fabrication numérique</span><span class="exp-tag">Design thinking</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>🧩 Jeux de logique &amp; Casse-têtes</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Passion pour les <strong>jeux de casse-tête et de logique</strong> — entraînement naturel à la pensée systémique, à la décomposition de problèmes complexes et à la recherche de solutions élégantes.</p>
+              <div class="exp-tags"><span class="exp-tag">Pensée systémique</span><span class="exp-tag">Problem Solving</span><span class="exp-tag">Rigueur analytique</span></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- BLOC 2 : COSMOS -->
+        <div style="margin-bottom:32px">
+          <div class="group-label">🌌 Sciences, Cosmos &amp; Grandes Questions</div>
+          <div style="background:linear-gradient(135deg,#0d2b4e 0%,#0a3d5e 100%);border-radius:12px;padding:24px;margin-top:16px;color:#fff;position:relative;overflow:hidden">
+            <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;border-radius:50%;background:rgba(14,116,144,0.2)"></div>
+            <p style="font-family:'Lora',serif;font-style:italic;font-size:1.05rem;color:#bfdbfe;margin-bottom:16px;line-height:1.6">"Comprendre d'où vient l'univers, c'est comprendre les systèmes les plus complexes qui soient — et développer l'humilité de celui qui sait que les grandes réponses sont rarement simples."</p>
+            <p style="font-size:0.88rem;color:#93c5fd;margin-bottom:14px;">Passionné par la <strong style="color:#fff">cosmologie, la genèse de l'univers et de la vie, l'astrobiologie</strong> et les théories sur le futur de l'humanité. Lecteur avide de vulgarisation scientifique et de prospective.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Origines de l'univers</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Astrobiologie</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Vies extraterrestres</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Futur de l'humanité</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Évolution du vivant</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Prospective scientifique</span>
+            </div>
+            <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1)">
+              <p style="font-size:0.78rem;color:var(--gold)">🔗 Lien avec le profil pro :</p>
+              <p style="font-size:0.82rem;color:#93c5fd;margin-top:4px">Cette curiosité pour les <strong style="color:#fff">systèmes complexes, l'émergence et les grandes structures</strong> nourrit directement la pensée en process engineering et knowledge management — raisonner en systèmes, en cycles, en causalités longues.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOC 3 : LECTURE -->
+        <div style="margin-bottom:32px">
+          <div class="group-label">📚 Lecture &amp; Culture</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+
+            <div class="skill-card">
+              <h3>📖 Romans &amp; Thrillers</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Lecteur de <strong>thrillers, polars et romans pseudo-historiques</strong> — particulièrement attiré par les récits mêlant histoire réelle, secrets religieux et fiction spéculative (<em>Le Messager des Sables</em>, Da Vinci Code universe…).</p>
+              <div class="exp-tags"><span class="exp-tag">Narration</span><span class="exp-tag">Culture générale</span><span class="exp-tag">Histoire &amp; religions</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>🎨 BD &amp; Littérature graphique</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;"><strong>BDPhile</strong> — univers de la fiction et de la fantasy. La BD comme forme d'expression qui combine narration visuelle et texte, développant une sensibilité naturelle pour le <strong>storytelling et la communication visuelle</strong>.</p>
+              <div class="exp-tags"><span class="exp-tag">Visual storytelling</span><span class="exp-tag">Fiction &amp; Fantasy</span><span class="exp-tag">Communication visuelle</span></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- BLOC 4 : JEUX -->
+        <div style="margin-bottom:16px">
+          <div class="group-label">🎮 Jeux &amp; Détente</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+
+            <div class="skill-card">
+              <h3>🔤 Scrabble &amp; Jeux de mots</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Passion pour le <strong>Scrabble et les jeux de mots</strong> — maîtrise du vocabulaire, rigueur orthographique et plaisir de la langue. Un lien direct avec les compétences de <strong>rédaction structurée et documentation technique</strong>.</p>
+              <div class="exp-tags"><span class="exp-tag">Maîtrise linguistique</span><span class="exp-tag">Structured Authoring</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>⛏️ Minecraft</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Joueur <strong>Minecraft</strong> — univers de construction par blocs qui développe naturellement la <strong>pensée architecturale, la planification spatiale et la créativité systémique</strong>. Un jeu de projet en monde ouvert.</p>
+              <div class="exp-tags"><span class="exp-tag">Créativité</span><span class="exp-tag">Architecture &amp; planification</span><span class="exp-tag">Construction systémique</span></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>iv>
+
+    <!-- ═══════════ ENGLISH ═══════════ -->
+    <div class="lang-content" id="lang-en">
+
+      <!-- ABOUT EN -->
+      <div class="section active" data-tab="À propos">
+        <h2 class="section-title">About</h2>
+        <div class="positioning-label">Transversal profile · Sector-agnostic</div>
+        <div class="tagline">"The domain changes. The ability to structure, optimise and deliver stays the same."</div>
+        <div class="about-body">
+          <p>Senior specialist in <strong>digital content operations, process engineering and knowledge systems</strong> — with 20+ years of progressive experience across very different environments: IT & telecoms (French Defence), social services (EPIDE), and international software industry (Cyncly). This cross-sector background is a strength: it builds adaptability and system thinking that applies to any context.</p>
+          <p>Currently <strong>Content Director Bathroom at Cyncly (L6)</strong>, I lead international content production operations — pipelines, quality frameworks, tool transformation and cross-functional coordination across product, delivery and client teams. The sector (interior design, sanitary) is a context; the core expertise is <strong>designing and optimising content production systems</strong>.</p>
+          <p>Actively seeking a <strong>senior Individual Contributor (L6+) role</strong> in <em>Content Ops, Knowledge Management, Digital Transformation, or Technical Project Management</em> — in any sector that values methodological rigour, system thinking, and the ability to deliver quality at scale.</p>
+        </div>
+
+        <div style="margin-top:20px">
+          <p style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:10px;">🎯 Target Roles</p>
+          <div class="target-roles">
+            <div class="role-badge">Content / Knowledge Manager</div>
+            <div class="role-badge">Product Content Lead / Content Ops</div>
+            <div class="role-badge">Digital Transformation Consultant</div>
+            <div class="role-badge">Technical Project Manager (IC)</div>
+          </div>
+        </div>
+
+        <div class="kw-block">
+          <h4>🔍 ATS Keywords — transversal</h4>
+          <div class="tags">
+            <span class="tag">Content Operations</span><span class="tag">Knowledge Management</span>
+            <span class="tag">Process Engineering</span><span class="tag">Digital Transformation</span>
+            <span class="tag">Content Architecture</span><span class="tag">Structured Authoring</span>
+            <span class="tag">Quality Assurance</span><span class="tag">Continuous Improvement</span>
+            <span class="tag">Agile / Scrum</span><span class="tag">Requirements Analysis</span>
+            <span class="tag">Stakeholder Management</span><span class="tag">Technical Documentation</span>
+            <span class="tag">Workflow Automation</span><span class="tag">KPI & Reporting</span>
+            <span class="tag">Project Management</span><span class="tag">Cross-functional</span>
+            <span class="tag">Multinational Teams</span><span class="tag">AI Fundamentals</span>
+            <span class="tag">Individual Contributor L6</span><span class="tag">Information Architecture</span>
+          </div>
+        </div>
+        <div class="ats-note"><strong>ATS note:</strong> This profile deliberately avoids sector-specific jargon (SFx, Simpliplan, CiC, interior design software) in favour of cross-industry vocabulary. Sector-specific terms are retained within experience entries for credibility, but do not define the profile identity.</div>
+      </div>
+
+      <!-- EXPERIENCE EN -->
+      <div class="section" data-tab="Expériences">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="group-label">Software Industry — Content & Ops</div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-body">
+            <div class="exp-role">Content Director Bathroom</div>
+            <div class="exp-company">Cyncly (formerly Compusoft) · Permanent · L6 · Lunéville (Hybrid)</div>
+            <div class="exp-dates">Sept. 2022 – Present · 3 yrs 9 mo</div>
+            <ul class="exp-desc">
+              <li><strong>Content operations leadership</strong>: designed and scaled production pipelines for dematerialised 3D product catalogues across international markets.</li>
+              <li><strong>Process engineering</strong>: defined standards, quality gates and delivery KPIs; reduced rework through structured authoring and data-driven QA.</li>
+              <li><strong>Digital transformation</strong>: drove tool and workflow evolution toward scalable content architectures.</li>
+              <li><strong>Cross-functional coordination</strong>: aligned product, delivery, client and content teams via sprint reviews, roadmaps and stakeholder management.</li>
+              <li>People management: performance cycles, OKRs, engagement (Peakon), skill development.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Content Ops</span><span class="exp-tag">Process Engineering</span><span class="exp-tag">Digital Transformation</span><span class="exp-tag">QA</span><span class="exp-tag">Agile</span><span class="exp-tag">Stakeholder Mgmt</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-body">
+            <div class="exp-role">Catalogue Coordinator – Bathroom Branch</div>
+            <div class="exp-company">Compusoft France (now Cyncly) · Lunéville</div>
+            <div class="exp-dates">June 2015 – Present · 11 yrs</div>
+            <ul class="exp-desc">
+              <li><strong>Knowledge architecture</strong>: defined content structures, taxonomies and production workflows for interior design software ecosystems.</li>
+              <li>Technical coordination with international brand partners; specification compliance and QA.</li>
+              <li>Internal documentation, structured authoring guides and onboarding resources.</li>
+            </ul>
+            <div class="exp-tags"><span class="exp-tag">Knowledge Mgmt</span><span class="exp-tag">Content Architecture</span><span class="exp-tag">Tech Documentation</span></div>
+          </div>
+        </div>
+
+        <div class="group-label" style="margin-top:4px">Social Sector</div>
+
+        <div class="exp-item">
+          <div class="exp-dot muted"></div>
+          <div class="exp-body">
+            <div class="exp-role">Référent (Social Integration Advisor)</div>
+            <div class="exp-company">EPIDE · Strasbourg</div>
+            <div class="exp-dates">Jan. 2010 – May 2015 · 5 yrs 5 mo</div>
+            <ul class="exp-desc">
+              <li>Designed and delivered individualised pedagogical programmes for young adults (18-25) in professional reintegration pathways.</li>
+              <li>Reporting, cohort tracking and institutional communication.</li>
+            </ul>
+            <div class="exp-tags"><span class="exp-tag">Pedagogy</span><span class="exp-tag">Knowledge Transfer</span><span class="exp-tag">Reporting</span></div>
+          </div>
+        </div>
+
+        <div class="group-label" style="margin-top:4px">Defence — IT & Project Management</div>
+
+        <div class="exp-item">
+          <div class="exp-dot muted"></div>
+          <div class="exp-body">
+            <div class="exp-role">ICT Project Manager</div>
+            <div class="exp-company">French Defence (Ministère des Armées)</div>
+            <div class="exp-dates">July 2005 – Oct. 2009 · 4 yrs 4 mo</div>
+            <ul class="exp-desc">
+              <li><strong>Large-scale IT project management</strong>: planned and supervised network infrastructure deployment across multiple sites; technical documentation and risk management.</li>
+            </ul>
+            <div class="exp-tags"><span class="exp-tag">ICT Project Mgmt</span><span class="exp-tag">Tech Documentation</span><span class="exp-tag">Process Definition</span></div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot muted"></div>
+          <div class="exp-body">
+            <div class="exp-role">Head of IT & Telecoms Services</div>
+            <div class="exp-company">French Defence</div>
+            <div class="exp-dates">June 2003 – July 2005 · 2 yrs 2 mo</div>
+            <ul class="exp-desc"><li>Managed operational unit of 120 technicians · IS & telecoms supervision · SLA compliance.</li></ul>
+            <div class="exp-tags"><span class="exp-tag">IT Ops</span><span class="exp-tag">Leadership</span></div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot muted"></div>
+          <div class="exp-body">
+            <div class="exp-role">Section Commander (×2)</div>
+            <div class="exp-company">French Defence</div>
+            <div class="exp-dates">1996 – 1998 · 2 yrs</div>
+            <ul class="exp-desc"><li>Operational team leadership, pedagogy, administration.</li></ul>
+            <div class="exp-tags"><span class="exp-tag">Leadership</span><span class="exp-tag">Administration</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKILLS EN -->
+      <div class="section" data-tab="Compétences">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card"><h3>📦 Content & Knowledge</h3><ul class="skill-list"><li>Content Operations (Ops)</li><li>Knowledge Architecture</li><li>Structured Authoring</li><li>Technical Documentation</li><li>Information Architecture</li><li>Knowledge Management</li></ul></div>
+          <div class="skill-card"><h3>⚙️ Process & Transformation</h3><ul class="skill-list"><li>Process Engineering</li><li>Continuous Improvement</li><li>Digital Transformation</li><li>Workflow Automation</li><li>Quality Assurance (QA)</li><li>Requirements Analysis</li></ul></div>
+          <div class="skill-card"><h3>🎯 Project & Ops</h3><ul class="skill-list"><li>Agile / Scrum</li><li>Project Planning</li><li>KPI & Reporting</li><li>Stakeholder Management</li><li>Cross-functional Coordination</li><li>MS Office / Excel (advanced)</li></ul></div>
+          <div class="skill-card"><h3>🤖 Emerging (2024+)</h3><ul class="skill-list"><li>AI Fundamentals & Applications</li><li>AI for Leaders & Managers</li><li>Adaptive Leadership</li><li>Flexible Project Leadership</li></ul></div>
+        </div>
+        <div style="margin-top:22px">
+          <p style="font-weight:600;font-size:0.9rem;margin-bottom:10px;color:var(--navy);">🌍 Languages</p>
+          <div class="lang-row">
+            <div class="lang-badge"><strong>French</strong><span>Native</span></div>
+            <div class="lang-badge"><strong>English</strong><span>C1 – EF SET 64/100 (2021)</span></div>
+            <div class="lang-badge"><strong>German</strong><span>Professional working</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCATION EN -->
+      <div class="section" data-tab="Formation">
+        <h2 class="section-title">Education & Certifications</h2>
+        <h3 style="font-size:0.82rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:12px;font-weight:600;">Degrees</h3>
+        <div class="edu-item"><div class="edu-school">UHA – Université de Haute-Alsace, Mulhouse</div><div class="edu-degree">1st year Magistère – Science & Structure of Matter</div><div class="edu-dates">1992 – 1993</div></div>
+        <div class="edu-item"><div class="edu-school">Lycée André Argouges – Grenoble</div><div class="edu-degree">Maths Sup & Spé TB (Chemistry) – Scientific prep classes</div><div class="edu-dates">1990 – 1992</div></div>
+        <h3 style="font-size:0.82rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:20px 0 12px;font-weight:600;">Certifications</h3>
+        <div class="cert-item"><div class="cert-badge">EF</div><div><div class="cert-name">EF SET English Certificate C1 (64/100)</div><div class="cert-issuer">EF Standard English Test · Jan. 2021</div></div></div>
+        <div class="cert-item"><div class="cert-badge">LI</div><div><div class="cert-name">AI Fundamentals</div><div class="cert-issuer">LinkedIn Learning · Nov. 2024</div></div></div>
+        <div class="cert-item"><div class="cert-badge">LI</div><div><div class="cert-name">AI for Leaders & Managers</div><div class="cert-issuer">LinkedIn Learning · Nov. 2024</div></div></div>
+        <div class="cert-item"><div class="cert-badge">LI</div><div><div class="cert-name">Flexible Project Leadership</div><div class="cert-issuer">LinkedIn Learning · Nov. 2024</div></div></div>
+      </div>
+
+      <!-- INTERESTS EN -->
+      <div class="section" data-tab="✨ Centres d'intérêt">
+        <h2 class="section-title">Interests &amp; Passions</h2>
+
+        <div class="positioning-label">Who I am outside the office</div>
+        <p style="margin:14px 0 28px;color:var(--muted);font-size:0.9rem;font-style:italic;">Every passion reveals how I think and solve problems. Some feed directly into my professional profile, others simply reveal who I am.</p>
+
+        <!-- BLOC 1: PRO LINK -->
+        <div style="margin-bottom:32px">
+          <div class="group-label">🔗 Directly connected to my professional profile</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+
+            <div class="skill-card">
+              <h3>🤖 Artificial Intelligence</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Active and curious user of <strong>Claude, ChatGPT, Copilot</strong> — not just as tools, but to understand their mechanisms, limits and potential within content production workflows.</p>
+              <div class="exp-tags"><span class="exp-tag">AI-augmented Content Ops</span><span class="exp-tag">Workflow Automation</span><span class="exp-tag">Digital Transformation</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>⚙️ VBA Automation &amp; Dev</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Passion for <strong>VBA programming</strong> applied to daily workflow optimisation. Occasional development at an initiated level — the drive to understand systems from the inside, not just use them.</p>
+              <div class="exp-tags"><span class="exp-tag">Process Automation</span><span class="exp-tag">VBA / Microsoft 365</span><span class="exp-tag">Problem Solving</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>🖨️ 3D Printing</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Amateur <strong>3D printing</strong> practitioner — a natural connection to the world of 3D content and dematerialised catalogues. Understanding the physical to better produce the virtual.</p>
+              <div class="exp-tags"><span class="exp-tag">3D Content</span><span class="exp-tag">Digital fabrication</span><span class="exp-tag">Design thinking</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>🧩 Logic &amp; Puzzle Games</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Passion for <strong>puzzles and logic games</strong> — natural training in systems thinking, breaking down complex problems and finding elegant solutions.</p>
+              <div class="exp-tags"><span class="exp-tag">Systems thinking</span><span class="exp-tag">Problem Solving</span><span class="exp-tag">Analytical rigour</span></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- BLOC 2: COSMOS -->
+        <div style="margin-bottom:32px">
+          <div class="group-label">🌌 Science, Cosmos &amp; Big Questions</div>
+          <div style="background:linear-gradient(135deg,#0d2b4e 0%,#0a3d5e 100%);border-radius:12px;padding:24px;margin-top:16px;color:#fff;position:relative;overflow:hidden">
+            <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;border-radius:50%;background:rgba(14,116,144,0.2)"></div>
+            <p style="font-family:'Lora',serif;font-style:italic;font-size:1.05rem;color:#bfdbfe;margin-bottom:16px;line-height:1.6">"Understanding where the universe comes from means understanding the most complex systems in existence — and developing the humility of someone who knows that big answers are rarely simple."</p>
+            <p style="font-size:0.88rem;color:#93c5fd;margin-bottom:14px;">Passionate about <strong style="color:#fff">cosmology, the origins of the universe and life, astrobiology</strong> and theories about the future of humanity. Avid reader of science popularisation and long-term prospective thinking.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Origins of the universe</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Astrobiology</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Extraterrestrial life</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Future of humanity</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Evolution of life</span>
+              <span style="background:rgba(255,255,255,0.1);color:#bfdbfe;padding:4px 12px;border-radius:16px;font-size:0.76rem">Scientific prospective</span>
+            </div>
+            <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1)">
+              <p style="font-size:0.78rem;color:var(--gold)">🔗 Professional connection:</p>
+              <p style="font-size:0.82rem;color:#93c5fd;margin-top:4px">This curiosity for <strong style="color:#fff">complex systems, emergence and large-scale structures</strong> directly feeds process engineering and knowledge management thinking — reasoning in systems, cycles and long-chain causality.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOC 3: READING -->
+        <div style="margin-bottom:32px">
+          <div class="group-label">📚 Reading &amp; Culture</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+
+            <div class="skill-card">
+              <h3>📖 Novels &amp; Thrillers</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Reader of <strong>thrillers, crime fiction and pseudo-historical novels</strong> — particularly drawn to narratives blending real history, religious secrets and speculative fiction (<em>The Sand Chronicle</em>, Da Vinci Code universe…).</p>
+              <div class="exp-tags"><span class="exp-tag">Storytelling</span><span class="exp-tag">General culture</span><span class="exp-tag">History &amp; religions</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>🎨 Comics &amp; Graphic Fiction</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;"><strong>Comics enthusiast</strong> — fiction and fantasy universes. Comics as an art form combining visual narrative and text, building a natural sensibility for <strong>visual storytelling and communication design</strong>.</p>
+              <div class="exp-tags"><span class="exp-tag">Visual storytelling</span><span class="exp-tag">Fiction &amp; Fantasy</span><span class="exp-tag">Visual communication</span></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- BLOC 4: GAMES -->
+        <div style="margin-bottom:16px">
+          <div class="group-label">🎮 Games &amp; Leisure</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+
+            <div class="skill-card">
+              <h3>🔤 Scrabble &amp; Word Games</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;">Passionate about <strong>Scrabble and word games</strong> — vocabulary mastery, orthographic precision and linguistic pleasure. A direct link to <strong>structured authoring and technical documentation</strong> skills.</p>
+              <div class="exp-tags"><span class="exp-tag">Language mastery</span><span class="exp-tag">Structured Authoring</span></div>
+            </div>
+
+            <div class="skill-card">
+              <h3>⛏️ Minecraft</h3>
+              <p style="font-size:0.88rem;color:var(--dark);margin-bottom:10px;"><strong>Minecraft</strong> player — a block-building universe that naturally develops <strong>architectural thinking, spatial planning and systemic creativity</strong>. An open-world project game at heart.</p>
+              <div class="exp-tags"><span class="exp-tag">Creativity</span><span class="exp-tag">Architecture &amp; planning</span><span class="exp-tag">Systemic thinking</span></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /lang-en -->
+  </div><!-- /content -->
+
+  <div class="footer">Profil transversal optimisé ATS · Christophe Schleicher · Mai 2026</div>
+</div>
+
+<script>
+let currentLang = 'fr';
+let currentTabIndex = 0;
+
+const tabLabels = ['À propos', 'Expériences', 'Compétences', 'Formation', '✨ Centres d\'intérêt'];
+
+function switchLang(lang, btn) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+  document.getElementById('lang-' + lang).classList.add('active');
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // re-activate the correct tab in new lang
+  activateTab(currentTabIndex);
+}
+
+function showTab(event) {
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach((t, i) => {
+    t.classList.remove('active');
+    if (t === event.target) currentTabIndex = i;
+  });
+  event.target.classList.add('active');
+  activateTab(currentTabIndex);
+}
+
+function activateTab(idx) {
+  const label = tabLabels[idx];
+  const activeLang = document.getElementById('lang-' + currentLang);
+  activeLang.querySelectorAll('.section').forEach(s => {
+    s.classList.toggle('active', s.dataset.tab === label);
+  });
+}
+
+// copyText removed — no copy sections
+</script>
+</body>
+</html>
