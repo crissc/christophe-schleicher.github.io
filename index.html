@@ -330,7 +330,7 @@
   </div>
 
   <!-- TABS -->
-  <div class="tabs">
+  <div class="tabs" id="tabs-container">
     <div class="tab active" onclick="showTab(event)">À propos</div>
     <div class="tab" onclick="showTab(event)">Expériences</div>
     <div class="tab" onclick="showTab(event)">Compétences</div>
@@ -367,16 +367,16 @@
         <div class="kw-block">
           <h4>🔍 Mots-clés transversaux</h4>
           <div class="tags">
-            <span class="tag">Content Operations</span><span class="tag">Knowledge Management</span>
-            <span class="tag">Process Engineering</span><span class="tag">Digital Transformation</span>
-            <span class="tag">Content Architecture</span><span class="tag">Structured Authoring</span>
-            <span class="tag">Quality Assurance</span><span class="tag">Continuous Improvement</span>
-            <span class="tag">Agile / Scrum</span><span class="tag">Requirements Analysis</span>
-            <span class="tag">Stakeholder Management</span><span class="tag">Technical Documentation</span>
-            <span class="tag">Workflow Automation</span><span class="tag">KPI & Reporting</span>
-            <span class="tag">Project Management</span><span class="tag">Cross-functional</span>
-            <span class="tag">Multinational Teams</span><span class="tag">AI Fundamentals</span>
-            <span class="tag">Individual Contributor L6</span><span class="tag">Information Architecture</span>
+            <span class="tag">Opérations de contenu</span><span class="tag">Gestion des connaissances</span>
+            <span class="tag">Ingénierie des processus</span><span class="tag">Transformation digitale</span>
+            <span class="tag">Architecture de contenu</span><span class="tag">Rédaction structurée</span>
+            <span class="tag">Assurance qualité</span><span class="tag">Amélioration continue</span>
+            <span class="tag">Agile / Scrum</span><span class="tag">Analyse des exigences</span>
+            <span class="tag">Gestion des parties prenantes</span><span class="tag">Documentation technique</span>
+            <span class="tag">Automatisation des workflows</span><span class="tag">KPI & Reporting</span>
+            <span class="tag">Gestion de projet</span><span class="tag">Transverse / Interfonctionnel</span>
+            <span class="tag">Équipes multinationales</span><span class="tag">Fondamentaux IA</span>
+            <span class="tag">Contributeur individuel L6</span><span class="tag">Architecture de l'information</span>
           </div>
         </div>
       </div>
@@ -927,14 +927,33 @@
     </div><!-- /lang-en -->
   </div><!-- /content -->
 
-  <div class="footer">Profil · Christophe Schleicher · Mai 2026</div>
+  <div class="footer" id="page-footer">Profil · Christophe Schleicher · Mai 2026</div>
 </div>
 
 <script>
 let currentLang = 'fr';
 let currentTabIndex = 0;
 
-const tabLabels = ['À propos', 'Expériences', 'Compétences', 'Formation', '✨ Centres d\'intérêt'];
+const tabLabels = {
+  fr: ['À propos', 'Expériences', 'Compétences', 'Formation', '✨ Centres d\'intérêt'],
+  en: ['About', 'Experience', 'Skills', 'Education', '✨ Interests']
+};
+
+// data-tab values in HTML (always French keys used as identifiers)
+const tabKeys = ['À propos', 'Expériences', 'Compétences', 'Formation', '✨ Centres d\'intérêt'];
+
+const footerText = {
+  fr: 'Profil · Christophe Schleicher · Mai 2026',
+  en: 'Profile · Christophe Schleicher · May 2026'
+};
+
+function renderTabs() {
+  const container = document.getElementById('tabs-container');
+  const labels = tabLabels[currentLang];
+  container.innerHTML = labels.map((label, i) =>
+    `<div class="tab${i === currentTabIndex ? ' active' : ''}" onclick="showTab(event)">${label}</div>`
+  ).join('');
+}
 
 function switchLang(lang, btn) {
   currentLang = lang;
@@ -942,7 +961,8 @@ function switchLang(lang, btn) {
   document.getElementById('lang-' + lang).classList.add('active');
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  // re-activate the correct tab in new lang
+  document.getElementById('page-footer').textContent = footerText[lang];
+  renderTabs();
   activateTab(currentTabIndex);
 }
 
@@ -957,10 +977,10 @@ function showTab(event) {
 }
 
 function activateTab(idx) {
-  const label = tabLabels[idx];
+  const key = tabKeys[idx];
   const activeLang = document.getElementById('lang-' + currentLang);
   activeLang.querySelectorAll('.section').forEach(s => {
-    s.classList.toggle('active', s.dataset.tab === label);
+    s.classList.toggle('active', s.dataset.tab === key);
   });
 }
 
